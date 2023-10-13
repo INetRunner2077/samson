@@ -104,7 +104,7 @@ class SamsonForm extends CBitrixComponent implements Controllerable
      *
      * @param $primeKe
      */
-    public static function deleteUserSale($primeKey)
+    protected static function deleteUserSale($primeKey)
     {
         SamsonFormTable::delete($primeKey);
     }
@@ -116,7 +116,7 @@ class SamsonForm extends CBitrixComponent implements Controllerable
      * @return array|bool
      *
      */
-    public static function GetUserSale($userId)
+    protected static function GetUserSale($userId)
     {
         $user = SamsonFormTable::getList(
             [
@@ -137,7 +137,7 @@ class SamsonForm extends CBitrixComponent implements Controllerable
      * @param $arData
      * @return array
      */
-    public static function setUserSale($arData)
+    protected static function setUserSale($arData)
     {
         $currentTime = date('d.m.Y H:i:s');
         $SALE = Random::getInt(1, 50);
@@ -168,7 +168,7 @@ class SamsonForm extends CBitrixComponent implements Controllerable
      * @param $date2
      * @return float
      */
-    public static function dateCheck($date1, $date2)
+    protected static function dateCheck($date1, $date2)
     {
         $d1_ts = strtotime($date1);
         $d2_ts = strtotime($date2);
@@ -185,7 +185,7 @@ class SamsonForm extends CBitrixComponent implements Controllerable
      * при каждом вызове компонента не является оптимальным решением !!!
      *
      */
-    public static function CreateOrm() {
+    protected static function CreateOrm() {
 
         require('ormtable.php');
         if (!Application::getConnection()->isTableExists(
